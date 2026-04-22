@@ -4,11 +4,7 @@ A simple and clean personal portfolio website built with HTML, CSS, and JavaScri
 
 ## Screenshot of html css and js
 
-
-
-## Screenshot of html css
-
-
+<img width="1919" height="1018" alt="Screenshot 2026-04-21 150900" src="https://github.com/user-attachments/assets/9eeb4b90-e719-432d-b4c1-6031dc1f8da3" />
 
 ## Tech Stack
 
