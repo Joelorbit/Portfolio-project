@@ -1,0 +1,2 @@
+[build]
+  publish = "html,css,js portfolio"
