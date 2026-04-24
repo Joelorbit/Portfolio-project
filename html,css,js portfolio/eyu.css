@@ -27,6 +27,28 @@ body {
     text-rendering: optimizeLegibility;
 }
 
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.skip-link:focus {
+    left: 1rem;
+    top: 1rem;
+    width: auto;
+    height: auto;
+    padding: 0.55rem 0.8rem;
+    border-radius: 8px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    color: var(--text);
+    z-index: 999;
+}
+
 body.bw-mode {
     --bg: #ffffff;
     --surface: #ffffff;
@@ -119,6 +141,14 @@ body.bw-mode .bw-toggle {
 .main-nav a:hover {
     color: var(--text);
     background: #eef2f6;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid rgba(29, 111, 214, 0.35);
+    outline-offset: 2px;
 }
 
 .hero {
@@ -291,6 +321,11 @@ h1 {
     font-size: 0.9rem;
 }
 
+.inline-link {
+    color: inherit;
+    text-underline-offset: 0.18em;
+}
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -333,7 +368,7 @@ h1 {
     padding: 0.35rem 0.65rem;
     font-size: 0.86rem;
     font-weight: 600;
-    background: #fff;
+    background: var(--surface);
     transition: background 0.2s ease, border-color 0.2s ease;
 }
 
@@ -367,7 +402,7 @@ h1 {
     padding: 0.65rem 0.7rem;
     font: inherit;
     resize: vertical;
-    background: #fcfdff;
+    background: var(--surface);
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -436,7 +471,7 @@ h1 {
         right: 4vw;
         top: 60px;
         flex-direction: column;
-        background: #fff;
+        background: var(--surface);
         border: 1px solid var(--line);
         border-radius: 10px;
         padding: 0.5rem;

@@ -1,39 +1,40 @@
 # Eyuel Portfolio
 
-A simple and clean personal portfolio website built with HTML, CSS, and JavaScript.
+This repository contains the source code for Eyuel Getachew's personal portfolio website.
+It is a clean, responsive one-page site built with plain HTML, CSS, and JavaScript.
 
-## Screenshot of html css and js
+Live site: [eyuelgetachew.vercel.app](https://eyuelgetachew.vercel.app)
 
-<img width="1919" height="1018" alt="Screenshot 2026-04-21 150900" src="https://github.com/user-attachments/assets/9eeb4b90-e719-432d-b4c1-6031dc1f8da3" />
+## What this project includes
 
-## Tech Stack
+- A lightweight, responsive portfolio layout
+- About section with profile highlights
+- Projects section linked to real GitHub repositories
+- Contact form UI with client-side feedback
+- Mobile menu and black/white mode toggle
+
+## Tech stack
 
 - HTML5
 - CSS3
-- JavaScript
+- JavaScript (Vanilla)
 
-## Project Structure
+## Project structure
 
-- `index.html` - Main page
-- `eyu.css` - Styles
-- `script.js` - Small interactions (menu, form message, B/W mode)
-- `public/` or `Asset` - Images
-## How To Run
+- `html,css,js portfolio/index.html` - Main page markup
+- `html,css,js portfolio/eyu.css` - All site styles
+- `html,css,js portfolio/script.js` - UI interactions
+- `html,css,js portfolio/public/` - Static assets (profile image)
 
-1. Download or clone this project.
-2. Open `index.html` in your browser.
+## Run locally
 
-## Main Features
+1. Clone this repository.
+2. Open `html,css,js portfolio/index.html` in your browser.
 
-- HTML and CSS only portfolio or HTML CSS AND JS Folder
-- Responsive white tech-style layout
-- Hero section with profile image
+## Notes
 
-## Customize
-
-- Update text in `index.html`
-- Update colors and layout styles in `style.css` also JS file
-- Replace image in `assets/eyuel.jpg`
+- The design stays intentionally minimal and content-focused.
+- External project links point to the GitHub profile.
 
 ## Author
 
