@@ -27,7 +27,9 @@ if (menuBtn && nav) {
 if (form && formNote) {
     form.addEventListener("submit", (event) => {
         event.preventDefault();
-        formNote.textContent = "Thanks. Your message has been prepared.";
+        const nameInput = form.querySelector("#name");
+        const name = nameInput && nameInput.value.trim() ? nameInput.value.trim() : "there";
+        formNote.textContent = `Thanks, ${name}. Your message has been prepared.`;
         form.reset();
     });
 }
@@ -38,12 +40,20 @@ if (bwToggle) {
         bwToggle.setAttribute("aria-pressed", String(enabled));
     };
 
-    const saved = localStorage.getItem("bw-mode") === "on";
+    let saved = false;
+    try {
+        saved = localStorage.getItem("bw-mode") === "on";
+    } catch (error) {
+        saved = false;
+    }
     applyBwState(saved);
 
     bwToggle.addEventListener("click", () => {
         const next = !document.body.classList.contains("bw-mode");
         applyBwState(next);
-        localStorage.setItem("bw-mode", next ? "on" : "off");
+        try {
+            localStorage.setItem("bw-mode", next ? "on" : "off");
+        } catch (error) {
+        }
     });
 }
