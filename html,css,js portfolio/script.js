@@ -27,10 +27,43 @@ if (menuBtn && nav) {
 if (form && formNote) {
     form.addEventListener("submit", (event) => {
         event.preventDefault();
+
         const nameInput = form.querySelector("#name");
-        const name = nameInput && nameInput.value.trim() ? nameInput.value.trim() : "there";
-        formNote.textContent = `Thanks, ${name}. Your message has been prepared.`;
-        form.reset();
+        const emailInput = form.querySelector("#email");
+        const messageInput = form.querySelector("#message");
+
+        const name = nameInput && nameInput.value.trim() ? nameInput.value.trim() : "";
+        const email = emailInput && emailInput.value.trim() ? emailInput.value.trim() : "";
+        const message = messageInput && messageInput.value.trim() ? messageInput.value.trim() : "";
+
+        if (!name || !email || !message) {
+            formNote.classList.remove("success");
+            formNote.classList.add("error");
+            formNote.textContent = "Please complete all fields before sending your message.";
+            return;
+        }
+
+        const subject = encodeURIComponent(`Portfolio message from ${name}`);
+        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+        const gmailCompose = `https://mail.google.com/mail/?view=cm&fs=1&to=abitieyuel@gmail.com&su=${subject}&body=${body}`;
+        const mailto = `mailto:abitieyuel@gmail.com?subject=${subject}&body=${body}`;
+
+        formNote.classList.remove("error");
+        formNote.classList.add("success");
+        formNote.innerHTML =
+            "Opening Gmail compose with your message... " +
+            `<a href="${mailto}" target="_blank" rel="noopener noreferrer">Use this link if Gmail does not open automatically.</a>`;
+
+        const tempLink = document.createElement("a");
+        tempLink.href = gmailCompose;
+        tempLink.target = "_blank";
+        tempLink.rel = "noopener noreferrer";
+        tempLink.style.display = "none";
+        document.body.appendChild(tempLink);
+        tempLink.click();
+        document.body.removeChild(tempLink);
+
+        window.setTimeout(() => form.reset(), 500);
     });
 }
 
@@ -57,3 +90,22 @@ if (bwToggle) {
         }
     });
 }
+
+// Add fade-in animation for sections
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, observerOptions);
+
+// Observe all sections
+document.querySelectorAll('section').forEach(section => {
+    observer.observe(section);
+});
